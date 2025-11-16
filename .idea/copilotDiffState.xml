@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/src/tss/tokenisation/BasicTokenizer.h">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/src/tss/tokenisation/BasicTokenizer.h" />
+              <option name="originalContent" value="#pragma once&#10;&#10;#include &lt;deque&gt;&#10;#include &lt;tss/tokenisation/ITokenizer.h&gt;&#10;#include &lt;tss/tokenisation/TokenType.h&gt;&#10;#include &lt;tss/MistakesContainer.h&gt;&#10;&#10;class BasicTokenizer final : ITokenizer&#10;{&#10;public:&#10;    explicit BasicTokenizer(const std::string&amp; code, MistakesContainer&amp; mistakes);&#10;    BasicTokenizer(const BasicTokenizer&amp;) = delete;&#10;    BasicTokenizer&amp; operator=(const BasicTokenizer&amp;) = delete;&#10;&#10;    BasicTokenizer(BasicTokenizer&amp;&amp;) noexcept = default;&#10;    BasicTokenizer&amp; operator=(BasicTokenizer&amp;&amp;) noexcept = default;&#10;&#10;    ~BasicTokenizer() override = default;&#10;    Token GetNextToken() override;&#10;    [[nodiscard]] bool Empty() const override  { return m_tokens.empty(); }&#10;    [[nodiscard]] size_t Size() const override { return m_tokens.size(); }&#10;private:&#10;&#10;    TokenType m_lastType { TokenType::LeftParenthesis };&#10;    std::deque&lt;Token&gt; m_tokens;&#10;    std::string_view m_code;&#10;    unsigned int m_cursor { 0 };&#10;&#10;    unsigned int m_line { 1 };&#10;    unsigned int m_linePos { 1 };&#10;&#10;    Token ParseToken(MistakesContainer&amp; mistakes);&#10;};&#10;&#10;" />
+              <option name="updatedContent" value="#pragma once&#10;&#10;#include &lt;deque&gt;&#10;#include &lt;tss/tokenisation/ITokenizer.h&gt;&#10;#include &lt;tss/tokenisation/TokenType.h&gt;&#10;#include &lt;tss/MistakesContainer.h&gt;&#10;&#10;class BasicTokenizer final : ITokenizer&#10;{&#10;public:&#10;    explicit BasicTokenizer(const std::string&amp; code, MistakesContainer&amp; mistakes);&#10;    BasicTokenizer(const BasicTokenizer&amp;) = delete;&#10;    BasicTokenizer&amp; operator=(const BasicTokenizer&amp;) = delete;&#10;&#10;    BasicTokenizer(BasicTokenizer&amp;&amp;) noexcept = default;&#10;    BasicTokenizer&amp; operator=(BasicTokenizer&amp;&amp;) noexcept = default;&#10;&#10;    ~BasicTokenizer() override = default;&#10;    Token GetNextToken() override;&#10;    [[nodiscard]] bool Empty() const override  { return m_tokens.empty(); }&#10;    [[nodiscard]] size_t Size() const override { return m_tokens.size(); }&#10;private:&#10;    TokenType m_lastType { TokenType::LeftParenthesis };&#10;    std::deque&lt;Token&gt; m_tokens;&#10;    std::string m_code_storage; // Owns the string&#10;    std::string_view m_code;    // Views the string&#10;    unsigned int m_cursor { 0 };&#10;    unsigned int m_line { 1 };&#10;    unsigned int m_linePos { 1 };&#10;    Token ParseToken(MistakesContainer&amp; mistakes);&#10;};" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
